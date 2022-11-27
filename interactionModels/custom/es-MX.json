@@ -1,0 +1,111 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "prueba encadenamiento",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hola",
+            "como estás",
+            "di hola mundo",
+            "di hola",
+            "hola mundo"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "askNameIntent",
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "me llamo {nombre}",
+                "mi nombre es {nombre}"
+              ]
+            }
+          ],
+          "samples": [
+            "Registra mi nombre que es {nombre}",
+            "Registra que mi nombre es {nombre}",
+            "Me llamo {nombre}",
+            "Mi nombre es {nombre}",
+            "Registra nombre",
+            "Registra",
+            "Registra mi nombre"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "askNameIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.1198687489489.836102437610",
+                "elicitation": "Elicit.Slot.1198687489489.836102437610"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.109684792106",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿Tu nombre es {nombre} ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1198687489489.836102437610",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿Cuál es tu nombre?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.1198687489489.836102437610",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿Tu nombre es {nombre} ?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "8"
+}
